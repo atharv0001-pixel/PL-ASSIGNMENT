@@ -1,28 +1,41 @@
-#include<iostream>
-using namespace std;
-class Rectangle
-{
-    private:
-    int length;
-    int breadth;
-    public:
-    int Area(int L,int B)
-    {
-        int area=L*B;
-        return area;
-    }
-    int Perimeter(int X, int Y);
-};
-int Rectangle::Perimeter(int X,int Y)
-{
-    int peri=2*(X+Y);
-    return peri;
-}
-int main()
-{
-    Rectangle R1;
-    cout<<"Area of rectangle:"<<R1.Area(2,3)<<endl;
-    cout<<"Perimeter of rectangle:"<<R1.Perimeter(2,3)<<endl;
-    return 0;
 
+#include <iostream>
+using namespace std;
+
+class Book {
+public:
+    string name;
+    int price;
+
+    Book(string n, int p) {
+        name = n;
+        price = p;
+    }
+
+    Book(const Book &b) {
+        name = b.name;
+        price = b.price;
+    }
+
+    void display() {
+        cout << "Book: " << name << endl;
+        cout << "Price: " << price << endl;
+    }
+
+    ~Book() {
+        cout << "Destructor Called" << endl;
+    }
+};
+
+int main() {
+    Book b1("C++", 500);
+    Book b2 = b1;
+
+    cout << "Original Book:\n";
+    b1.display();
+
+    cout << "\nCopied Book:\n";
+    b2.display();
+
+    return 0;
 }
