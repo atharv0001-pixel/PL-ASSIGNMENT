@@ -1,29 +1,37 @@
-// Car Fuel Cost Calculator
-// Input distance, mileage and fuel price.
-// Calculate fuel required and total fuel cost.
 
 #include <iostream>
 using namespace std;
 
+class Car {
+public:
+    string name;
+    int price;
+    int speed;
+
+    void input() {
+        cout << "Enter Car Name: ";
+        cin >> name;
+
+        cout << "Enter Car Price: ";
+        cin >> price;
+
+        cout << "Enter Car Speed: ";
+        cin >> speed;
+    }
+
+    void display() {
+        cout << "\nCar Details" << endl;
+        cout << "Car Name: " << name << endl;
+        cout << "Car Price: " << price << endl;
+        cout << "Car Speed: " << speed << " km/h" << endl;
+    }
+};
+
 int main() {
+    Car c1;
 
-    float distance, mileage, fuelPrice;
-    float fuelRequired, totalCost;
-
-    cout << "Enter distance travelled (km): ";
-    cin >> distance;
-
-    cout << "Enter car mileage (km/l): ";
-    cin >> mileage;
-
-    cout << "Enter fuel price per litre: ";
-    cin >> fuelPrice;
-
-    fuelRequired = distance / mileage;
-    totalCost = fuelRequired * fuelPrice;
-
-    cout << "Fuel required = " << fuelRequired << " litres" << endl;
-    cout << "Total fuel cost = Rs. " << totalCost << endl;
+    c1.input();
+    c1.display();
 
     return 0;
 }
