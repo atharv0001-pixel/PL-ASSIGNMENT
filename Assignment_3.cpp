@@ -1,25 +1,33 @@
-// Mobile Recharge
-// Input recharge amount and GST percentage.
-// Calculate and display the final amount.
 
 #include <iostream>
 using namespace std;
 
+class Rectangle {
+private:
+    int length, breadth;
+
+public:
+    void input() {
+        cout << "Enter Length: ";
+        cin >> length;
+        cout << "Enter Breadth: ";
+        cin >> breadth;
+    }
+
+    void area();
+    void perimeter() {
+        cout << "Perimeter: " << 2 * (length + breadth) << endl;
+    }
+};
+
+void Rectangle::area() {
+    cout << "Area: " << length * breadth << endl;
+}
+
 int main() {
-
-    float rechargeAmount, gstPercentage, gstAmount, finalAmount;
-
-    cout << "Enter recharge amount: ";
-    cin >> rechargeAmount;
-
-    cout << "Enter GST percentage: ";
-    cin >> gstPercentage;
-
-    gstAmount = (rechargeAmount * gstPercentage) / 100;
-
-    finalAmount = rechargeAmount + gstAmount;
-
-    cout << "Final amount = Rs. " << finalAmount << endl;
-
+    Rectangle r;
+    r.input();
+    r.area();
+    r.perimeter();
     return 0;
 }
