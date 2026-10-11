@@ -1,71 +1,35 @@
-#include<iostream>
-#include<string>
-using namespace std;
-class Product
-{
-    public:
-    int Product_Id;
-    string Product_Name;
-    float Price;
-    int MonthlySale[12];
-    void GetInfo()
-    {
-        cout<<"Enter product Id:";
-        cin>>Product_Id;
-        cout<<"Enter Product Name:";
-        cin>>Product_Name;
-        cout<<"Enter Product Price:";
-        cin>>Price;
 
-        cout<<"Enter monthly sales:";
-        for(int i=0;i<12;i++)
-        {
-            cout<<"Month:"<<i+1<<endl;
-            cin>>MonthlySale[i];
-        }
+#include <iostream>
+using namespace std;
+
+class Employee {
+public:
+    int salary, bonus;
+
+    Employee() {
+        salary = 10000;
+        bonus = 2000;
     }
-    int Total_Quantity()
-    {
-        int total=0;
-        for(int i=0;i<12;i++)
-        {
-            total=total+MonthlySale[i];
-        }
-        return total;
+
+    Employee(int s, int b) {
+        salary = s;
+        bonus = b;
     }
-    float Bill()
-    {
-        return Total_Quantity()*Price;
-    }
-    void Display()
-    {
-        cout<<"Product Id    :"<<Product_Id<<endl;
-        cout<<"Product Name  :"<<Product_Name<<endl;
-        cout<<"Product Price :"<<Price<<endl;
-        cout<<"Total Quantity:"<<Total_Quantity()<<endl;
-        cout<<"Total Bill    :"<<Bill()<<endl;
+
+    void display() {
+        cout << "Total Salary: " << salary + bonus << endl;
     }
 };
-int main()
-{
-    int number;
-    cout<<"Enter number of Products:";
-    cin>>number;
 
-    Product P[number];
-    for(int i=0;i<number;i++)
-    {
-        cout<<"Enter Product details for product:"<<i+1<<endl;
-        P[i].GetInfo();
-    }
-    cout<<"=======All product Details:======="<<endl;
-    cout<<"=================================="<<endl;
-    for(int i=0;i<number;i++)
-    {
-        cout<<"Details of product:"<<i+1<<endl;
-        P[i].Display();
-    cout<<"=================================="<<endl;
+int main() {
+    Employee e1;
+    Employee e2(20000, 5000);
 
-    }
+    cout << "Default Constructor: ";
+    e1.display();
+
+    cout << "Parameterized Constructor: ";
+    e2.display();
+
     return 0;
 }
